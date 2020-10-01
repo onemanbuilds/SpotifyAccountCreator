@@ -1,0 +1,10 @@
+requests
+json
+os
+sys
+random
+string
+colorama
+bs4
+fake_useragent
+threading
