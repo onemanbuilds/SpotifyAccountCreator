@@ -158,5 +158,5 @@ if __name__ == "__main__":
     lock = Lock()
     while True:
         lock.acquire()
-        Thread(target=SpotifyCreator(method))
+        Thread(target=SpotifyCreator(method)).start()
         lock.release()
