@@ -123,3 +123,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+SpotifyAccountCreator_v1.0.1.zip
+SpotifyAccountCreator_v1.0.1/SpotifyAccountCreator.exe
