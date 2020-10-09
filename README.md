@@ -2,7 +2,7 @@
  Creates Spotify accounts for you.
 
 # Tool
-![](https://i.ibb.co/8z76qcK/tool.png)
+![](https://i.ibb.co/G0BFypG/example2.png)
 
 # Example
 ![](https://i.ibb.co/pnNBzxb/example.png)
