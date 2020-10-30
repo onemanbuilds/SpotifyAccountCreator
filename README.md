@@ -2,13 +2,14 @@
  Creates Spotify accounts for you.
 
 # Tool
-![](https://i.ibb.co/kx5jyL8/tool.png)
+![](https://i.ibb.co/QnFYWcB/spotify-account-creator-tool.png)
 
 # Example
-![](https://i.ibb.co/mXx45jP/example.png)
+![](https://i.ibb.co/JHHg3Md/spotify-account-creator-example.png)
 
+  
 # Legal
- This was merely a speedrun to demonstrate how account checkers work.<br/>
+ This was merely a speedrun to demonstrate how account creators work.<br/>
  This is illegal if you use this without the consent of the owners (in this case, the Spotify team).<br/>
  The software designed to perform website security testing.<br/>
  The author is not responsible for any illegal use of these programs.<br/>
