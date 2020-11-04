@@ -1,6 +1,11 @@
 # SpotifyAccountCreator
  Creates Spotify accounts for you.
 
+# Installation
+```
+pip3 install -r requirements.txt
+``` 
+
 # Tool
 ![](https://i.ibb.co/QnFYWcB/spotify-account-creator-tool.png)
 
