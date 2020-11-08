@@ -6,7 +6,6 @@ from random import choice,randint
 from string import ascii_letters,digits
 from colorama import init,Style,Fore
 from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
 from threading import Thread,Lock,active_count
 from time import sleep
 
@@ -24,9 +23,13 @@ class Main:
         system("title {0}".format(title_name))
 
     def ReadFile(self,filename,method):
-        with open(filename,method) as f:
+        with open(filename,method,encoding='utf8') as f:
             content = [line.strip('\n') for line in f]
             return content
+
+    def GetRandomUserAgent(self):
+        useragents = self.ReadFile('useragents.txt','r')
+        return choice(useragents)
 
     def PrintText(self,bracket_color:Fore,text_in_bracket_color:Fore,text_in_bracket,text):
         self.lock.acquire()
@@ -62,14 +65,14 @@ class Main:
         self.SetTitle('One Man Builds Spotify Account Creator Tool')
         self.clear()
         self.title = Style.BRIGHT+Fore.RED+"""
-                                    
-                            ____ ___  ____ ___ _ ____ _   _    ____ ____ ____ ____ _  _ _  _ ___ 
-                            [__  |__] |  |  |  | |___  \_/     |__| |    |    |  | |  | |\ |  |  
-                            ___] |    |__|  |  | |      |      |  | |___ |___ |__| |__| | \|  |  
-                                                                                                
-                                            ____ ____ ____ ____ ___ ____ ____                                    
-                                            |    |__/ |___ |__|  |  |  | |__/                                    
-                                            |___ |  \ |___ |  |  |  |__| |  \                                    
+                                   ╔════════════════════════════════════════════════╗ 
+                                       ╔═╗╔═╗╔═╗╔╦╗╦╔═╗╦ ╦  ╔═╗╔═╗╔═╗╔═╗╦ ╦╔╗╔╔╦╗
+                                       ╚═╗╠═╝║ ║ ║ ║╠╣ ╚╦╝  ╠═╣║  ║  ║ ║║ ║║║║ ║ 
+                                       ╚═╝╩  ╚═╝ ╩ ╩╚   ╩   ╩ ╩╚═╝╚═╝╚═╝╚═╝╝╚╝ ╩ 
+                                                 ╔═╗╦═╗╔═╗╔═╗╔╦╗╔═╗╦═╗                     
+                                                 ║  ╠╦╝║╣ ╠═╣ ║ ║ ║╠╦╝                     
+                                                 ╚═╝╩╚═╚═╝╩ ╩ ╩ ╚═╝╩╚═
+                                   ╚════════════════════════════════════════════════╝                                                    
                                                                                                                 
                                 
         """
@@ -83,7 +86,6 @@ class Main:
         self.threads = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Threads: '))
         self.birth_year_start = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Birth year start: '))
         self.birth_year_end = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Birth year end: '))
-        self.ua = UserAgent()
         self.lock = Lock()
         print('')
 
@@ -96,10 +98,10 @@ class Main:
 
         country = choice(country_codes)
 
-        URL = "https://fakenamegenerator.com/gen-{0}-{1}-{2}.php".format(gender,country,country)
+        URL = f"https://fakenamegenerator.com/gen-{gender}-{country}-{country}.php"
 
         headers = {
-            'User-Agent': self.ua.random
+            'User-Agent': self.GetRandomUserAgent()
         }
 
         response = requests.get(URL,headers=headers).text
@@ -144,7 +146,7 @@ class Main:
 
     def TitleUpdate(self):
         while True:
-            self.SetTitle('One Man Builds Spotify Account Creator ^| CREATED: {0} ^| RETRIES: {1} ^| THREADS: {2}'.format(self.createds,self.retries,active_count()-1))
+            self.SetTitle(f'One Man Builds Spotify Account Creator ^| CREATED: {self.createds} ^| RETRIES: {self.retries} ^| THREADS: {active_count()-1}')
             sleep(0.1)
 
     def SpotifyCreator(self):
