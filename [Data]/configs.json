@@ -1,0 +1,10 @@
+{
+    "method":2,
+    "use_proxy":1,
+    "proxy_type":2,
+    "threads":300,
+    "birth_year_start":1970,
+    "birth_year_end":2005,
+    "webhook_enable":1,
+    "webhook_url":""
+}
