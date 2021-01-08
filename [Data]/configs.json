@@ -6,5 +6,5 @@
     "birth_year_start":1970,
     "birth_year_end":2005,
     "webhook_enable":1,
-    "webhook_url":""
+    "webhook_url":"webhookurl"
 }
